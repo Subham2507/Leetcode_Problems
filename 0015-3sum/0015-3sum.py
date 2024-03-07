@@ -4,10 +4,10 @@ class Solution:
         nums.sort()
         n=len(nums)
         l1=[]
-        for i in range(n-2):
-            if(i>0 and nums[i]==nums[i-1]):
+        for i in range(n-2):  ###Make it 3sum to 2 sum
+            if(i>0 and nums[i]==nums[i-1]): ### If the previous and current value are same skip it
                 continue
-            n1=nums[i]
+            n1=nums[i] ### new target for 2 sum
             target=-n1
             start=i+1
             end=n-1
@@ -17,7 +17,7 @@ class Solution:
                 elif(nums[start]+nums[end]>target):
                     end=end-1
                 else:
-                    while(start<n-1 and nums[start]==nums[start+1]):
+                    while(start<n-1 and nums[start]==nums[start+1]): ## skip one term for same value
                         start=start+1
                     while(end>0 and nums[end]==nums[end-1]):
                         end=end-1
